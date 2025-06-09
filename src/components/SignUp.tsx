@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 function SignUp() {
   const [formData, setFormData] = useState({
@@ -36,7 +37,7 @@ function SignUp() {
   const handleSubmit = (e: { preventDefault: () => void; }) => {
     e.preventDefault();
     console.log('Updated form data:', formData);
-    // TODO: Send updated data to your backend
+
   };
 
   if (loading) return <p className="text-center py-10">Loading user data...</p>;
@@ -50,9 +51,9 @@ function SignUp() {
           To keep connected with us please <br />
           log in with your personal info
         </p>
-        <button className="my-10 px-10 py-2 font-bold border-2 rounded-xl border-white hover:bg-white hover:text-[#173D54] transition">
+        <Link to="/SignIn" className="my-10 px-10 py-2 font-bold border-2 rounded-xl border-white hover:bg-white hover:text-[#173D54] transition">
           SIGN IN
-        </button>
+        </Link>
         <img
           src="/hero_img.webp"
           alt="Hero"
