@@ -1,53 +1,33 @@
 import { motion } from "motion/react";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+
 
 function SignIn() {
   const navigate = useNavigate();
-  const [isExiting, setIsExiting] = useState(false);
-
-  const slideInLeft = {
-    initial: { x: -300, opacity: 0 },
-    animate: { x: 0, opacity: 1, transition: { type: "spring", damping: 20, stiffness: 100, duration: 0.8 } },
-    exit: { x: -300, opacity: 0, transition: { duration: 0.5 } }
-  };
-
-  const handleNavigation = (e: { preventDefault: () => void; }) => {
-    e.preventDefault();
-    setIsExiting(true);
-    
-
-    setTimeout(() => {
-      navigate("/SignUp");
-    }, 500);
-  };
-  const slideInRight = {
-        initial: { x: 300, opacity: 0.5 },
-        animate: { 
-            x: 0, 
-            opacity: 1,
-            transition: {
-                type: "spring",
-                damping: 20,
-                stiffness: 100,
-                duration: 0.8
-            }
-        },
-        exit: { 
-            x: 300, 
-            opacity: 0.,
-            transition: { duration: 0.5 }
-        }
+    const slideInRight = {
+        initial: { x: 1000, opacity: 0 },
+        animate: { x: 0, opacity: 1, transition: { type: "spring", damping: 20, stiffness: 100 } }
     };
+
+    const slideInLeft = {
+        initial: { x: -1000, opacity: 0 },
+        animate: { x: 0, opacity: 1, transition: { type: "spring", damping: 20, stiffness: 100 } }
+    };
+
+  const handleNavigation = (e: { preventDefault: () => void }) => {
+    e.preventDefault();
+    navigate("/SignUp");
+  };
 
   return (
     <section className="flex items-center justify-center bg-white h-screen">
       <div className="max-w-6xl h-150 flex border-2 bg-blue-50 rounded-lg overflow-hidden shadow-xl">
         {/* Left Panel - Sign In Form */}
-        <motion.form className="flex flex-col items-center justify-center w-[55vw] h-full px-10 py-12 space-y-6"
-        variants={slideInRight}
+        <motion.form
+          className="flex flex-col items-center justify-center w-[55vw] h-full px-10 py-12 space-y-6"
+          variants={slideInRight}
           initial="initial"
-          animate={isExiting ? "exit" : "animate"}
+          animate="animate"
         >
           <h1 className="text-5xl font-bold text-center text-black mb-20">
             Sign In To Continue
@@ -83,7 +63,7 @@ function SignIn() {
           className="flex flex-col items-center justify-center w-[45vw] bg-[#173D54] text-white"
           variants={slideInLeft}
           initial="initial"
-          animate={isExiting ? "exit" : "animate"}
+          animate="animate"
         >
           <h1 className="text-5xl font-bold">Hello, Friends!</h1>
           <p className="text-center mt-4">
