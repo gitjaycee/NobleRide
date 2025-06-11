@@ -1,31 +1,77 @@
-import { Link } from "react-router-dom";
+import { motion } from "motion/react";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function SignIn(){
+    const navigate = useNavigate();
+  const [isExiting, setIsExiting] = useState(false);
+
+  const slideInLeft = {
+    initial: { x: -300, opacity: 0.5 },
+    animate: { x: 0, opacity: 1, transition: { type: "spring", damping: 20, stiffness: 100, duration: 0.8 } },
+    exit: { x: -300, opacity: 0.5, transition: { duration: 0.5 } }
+  };
+
+  const handleNavigation = (e: { preventDefault: () => void; }) => {
+    e.preventDefault();
+    setIsExiting(true);
+    
+
+    setTimeout(() => {
+      navigate("/SignIn");
+    }, 500);
+  };
+  const slideInRight = {
+        initial: { x: 300, opacity: 0.5 },
+        animate: { 
+            x: 0, 
+            opacity: 1,
+            transition: {
+                type: "spring",
+                damping: 20,
+                stiffness: 100,
+                duration: 0.8
+            }
+        },
+        exit: { 
+            x: 300, 
+            opacity: 0.5,
+            transition: { duration: 0.5 }
+        }
+    };
+
     return(
         <section className="flex items-center justify-center bg-white h-screen">
             <div className="max-w-6xl h-150 flex border-2 bg-blue-50 rounded-lg overflow-hidden shadow-xl">
                 {/* left panel */}
-                 <div className="flex flex-col items-center justify-center w-[45vw] bg-[#173D54] text-white">
+                 <motion.div className="flex flex-col items-center justify-center w-[45vw] bg-[#173D54] text-white"
+                 variants={slideInRight}
+            initial="initial"
+               animate={isExiting ? "exit" : "animate"}
+          >
                     <h1 className="text-5xl font-bold">Welcome Back!</h1>
                     <p className="text-center mt-4">
                         To keep connected with us please <br />
                         log in with your personal info
                     </p>
-                    <Link
-                    to="/SignIn"
+                    <button
+                    onClick={handleNavigation}
                     className="my-10 px-10 py-2 font-bold border-2 rounded-xl border-white hover:bg-white hover:text-[#173D54] transition"
                     >
                     SIGN IN
-                    </Link>
+                    </button>
                     <img
                     src="/hero_img.webp"
                     alt="Hero"
                     className="w-[300px] object-contain"
                     />
-                </div>
+                </motion.div>
 
                 {/* Right Panel - Sign Up Form */}
-                <form className="flex flex-col items-center justify-center w-[55vw] h-full px-10 py-12 space-y-6">
+                <motion.form className="flex flex-col items-center justify-center w-[55vw] h-full px-10 py-12 space-y-6"
+                variants={slideInLeft}
+                initial="initial"
+                animate={isExiting ? "exit" : "animate"}>
                     <h1 className="text-5xl font-bold text-center text-black mb-6">
                     Create Account
                     </h1>
@@ -71,7 +117,7 @@ function SignIn(){
                         Sign up
                     </button>
                     </div>
-                </form>
+                </motion.form>
             </div>
         </section>
     )
