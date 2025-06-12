@@ -1,1 +1,3 @@
 /// <reference types="vite/client" />
+VITE_SUPABASE_URL="https://your-project-id.supabase.co";
+VITE_SUPABASE_ANON_KEY="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InB5cnlna2pteWhjcWN3ZmJqcGFxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDk0NTMwNDAsImV4cCI6MjA2NTAyOTA0MH0.OtnaIidCHSApJANAOimVR8dM320ilvLy4F8UEs_54p8"
