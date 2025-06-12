@@ -1,6 +1,6 @@
 
 import React, { createContext, useContext, useEffect, useState } from 'react'
-import { supabase, type UserProfile, type AuthContextType } from '../lib/supabase'
+import { supabase, type UserProfile, type AuthContextType } from '../supabase'
 import type { User } from '@supabase/supabase-js'
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined)
