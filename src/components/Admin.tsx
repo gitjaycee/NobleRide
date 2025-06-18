@@ -57,6 +57,7 @@ function Admin() {
         if (editingProduct) {
             setProducts(products.map(p => p.id === editingProduct.id ? productData : p));
         } else {
+
             setProducts([...products, productData]);
         }
 
@@ -122,7 +123,7 @@ function Admin() {
                             <h3 className="text-xl font-semibold text-[#173D54] mb-4">
                                 {editingProduct ? 'Edit Product' : 'Add New Product'}
                             </h3>
-                            <form onSubmit={handleSubmit} className="space-y-4">
+                            <form onSubmit={handleSubmit} className="space-y-4 text-black">
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                     <input
                                         type="text"
@@ -154,14 +155,7 @@ function Admin() {
                                     className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#173D54]"
                                     required
                                 />
-                                <textarea
-                                    name="description"
-                                    placeholder="Product Description (Optional)"
-                                    value={formData.description}
-                                    onChange={handleInputChange}
-                                    rows={3}
-                                    className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#173D54]"
-                                />
+                            
                                 <div className="flex gap-4">
                                     <button
                                         type="submit"
@@ -195,8 +189,7 @@ function Admin() {
                                 />
                                 <div className="p-4">
                                     <h3 className="font-semibold text-[#173D54] text-lg mb-2">{product.name}</h3>
-                                    <p className="text-gray-600 text-sm mb-2">{product.description}</p>
-                                    <p className="text-2xl font-bold text-[#173D54] mb-4">${product.price.toFixed(2)}</p>
+                                    <p className="text-2xl font-bold text-[#173D54] mb-4">₱{product.price.toFixed(2)}</p>
                                     <div className="flex gap-2">
                                         <button
                                             onClick={() => handleEdit(product)}
