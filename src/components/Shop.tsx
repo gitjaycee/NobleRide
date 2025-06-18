@@ -1,16 +1,5 @@
-// src/components/Shop.tsx
-import { useAuth } from "../contexts/AuthContext";
 
 function Shop() {
-    const { userProfile, signOut } = useAuth();
-
-    const handleSignOut = async () => {
-        try {
-            await signOut();
-        } catch (error) {
-            console.error('Error signing out:', error);
-        }
-    };
 
     return (
         <div className="min-h-screen bg-white p-8">
@@ -18,10 +7,9 @@ function Shop() {
                 <div className="flex justify-between items-center mb-8">
                     <div>
                         <h1 className="text-4xl font-bold text-[#173D54] mb-2">Shop</h1>
-                        <p className="text-gray-600">Welcome, {userProfile?.name}!</p>
+                        <p className="text-gray-600">Welcome!</p>
                     </div>
                     <button
-                        onClick={handleSignOut}
                         className="bg-red-500 text-white px-6 py-2 rounded-lg hover:bg-red-600 transition"
                     >
                         Sign Out
