@@ -60,8 +60,6 @@ function Admin() {
 
             setProducts([...products, productData]);
         }
-
-        // Reset form
         setFormData({ name: "", price: "", image: "", description: "" });
         setShowForm(false);
         setEditingProduct(null);

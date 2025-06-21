@@ -1,45 +1,23 @@
+import { ShoppingCart } from "lucide-react";
 
 function Shop() {
 
-    return (
-        <div className="min-h-screen bg-white p-8">
-            <div className="max-w-4xl mx-auto">
-                <div className="flex justify-between items-center mb-8">
-                    <div>
-                        <h1 className="text-4xl font-bold text-[#173D54] mb-2">Shop</h1>
-                        <p className="text-gray-600">Welcome!</p>
-                    </div>
-                    <button
-                        className="bg-red-500 text-white px-6 py-2 rounded-lg hover:bg-red-600 transition"
-                    >
-                        Sign Out
-                    </button>
-                </div>
-                
-                <div className="bg-blue-50 p-8 rounded-lg shadow-md">
-                    <h2 className="text-2xl font-semibold text-[#173D54] mb-4">Customer Dashboard</h2>
-                    <p className="text-gray-700">
-                        This is the shop page for customers. Here you can browse products, 
-                        make purchases, and manage your orders.
-                    </p>
-                    
-                    <div className="mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                        <div className="bg-white p-4 rounded-lg shadow">
-                            <h3 className="font-semibold text-[#173D54]">Browse Products</h3>
-                            <p className="text-sm text-gray-600 mt-2">Explore our catalog</p>
-                        </div>
-                        <div className="bg-white p-4 rounded-lg shadow">
-                            <h3 className="font-semibold text-[#173D54]">My Orders</h3>
-                            <p className="text-sm text-gray-600 mt-2">Track your purchases</p>
-                        </div>
-                        <div className="bg-white p-4 rounded-lg shadow">
-                            <h3 className="font-semibold text-[#173D54]">My Account</h3>
-                            <p className="text-sm text-gray-600 mt-2">Manage your profile</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    return (    
+        <section className="flex flex-col justify-center items-center">
+            <nav className="flex justify-between w-[90vw] p-3 px-16 backdrop-blur-md rounded-xl bg-white/10">
+                {/* Brand Name */}
+                 <h1 className="font-bold text-3xl">NobleRide</h1>
+                {/* Nav Bar */}
+                <ul className="flex justify-between gap-5">
+                    <li>Home</li>
+                    <li>Products</li>
+                    <li>Contact Us</li> 
+                </ul>
+                {/* Cart */}
+                <ShoppingCart strokeWidth={3} />
+            </nav>
+           
+        </section>
     );
 }
 
